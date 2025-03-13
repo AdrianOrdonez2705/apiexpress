@@ -13,10 +13,15 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(countOperations);
 
-// Conectar a MongoDB
+// Conectar con MongoDB
 mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Could not connect to MongoDB', err));
+    .then(() => console.log('Conectado a MongoDB'))
+    .catch(err => console.error('No conectado a MongoDB', err));
+
+// Rutas
+app.get('/', (req, res) => {
+    res.send('Bienvenido a la API');
+});
 
 // Rutas
 app.use('/api', userRoutes);
@@ -37,7 +42,7 @@ app.get('/api/operaciones', (req, res) => {
     res.send({ operations: getOperationCount() });
 });
 
-// Iniciar el servidor
+// Servidor
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
+    console.log(`Servidor en puerto ${PORT}`);
 });
