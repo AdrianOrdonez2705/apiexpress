@@ -47,6 +47,11 @@ Una vez instaladas las dependencias, crear la siguiente estructura de carpetas y
     |__ /nodes_modules
 
 # Correr el backend
+Creando la estructura de carpetas, configurar el archivo `.env` según las credenciales, es decir,
+añadir el `connection string` dado por MongoDB Atlas para el cluster correspondiente y modificar
+las credenciales de usuarion <username> y contraseña <password> en la ruta de conexión. Finalmente
+ajustar el puerto correcto (3000 por defecto).
+
 Una vez que todo este levantado, correr la aplicación con el comando en la terminal:
         $ node server.js
 
